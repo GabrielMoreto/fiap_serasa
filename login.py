@@ -11,7 +11,7 @@ usuarios = {
 }
 
 # Limite de tentativas de login
-LIMITE_TENTATIVAS = 10
+LIMITE_TENTATIVAS = 10000
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -20,7 +20,7 @@ def login():
 
     if request.method == 'POST':
         if session['tentativas'] >= LIMITE_TENTATIVAS:
-            return "Você excedeu o número de tentativas de login. Tente novamente mais tarde.", 403
+            return "Você excedeu o número de tentativas de login. Tente novamente mais tarde."
         
         username = request.form['username']
         password = request.form['password']
@@ -31,7 +31,7 @@ def login():
             return redirect(url_for('index'))
         else:
             session['tentativas'] += 1
-            return "Nome de usuário ou senha incorretos.", 401
+            return "Nome de usuário ou senha incorretos."
 
     return render_template('login.html')
 
