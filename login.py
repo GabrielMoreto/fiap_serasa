@@ -1,16 +1,17 @@
 from flask import Flask, render_template, request, redirect, url_for, session, flash
 
 app = Flask(__name__)
-app.secret_key = 'sua_chave_secreta_aqui'  # Substitua pela sua chave secreta
+app.secret_key = 'fiap'  # Substitua pela sua chave secreta
 
 # Dicionário de usuários para fins de demonstração
 usuarios = {
     "mari": "67890",
-    "usuario2": "senha2"
+    "gabriel": "12345",
+    "paulo": "batman"
 }
 
 # Limite de tentativas de login
-LIMITE_TENTATIVAS = 3
+LIMITE_TENTATIVAS = 10
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
