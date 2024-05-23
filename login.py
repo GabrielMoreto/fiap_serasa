@@ -11,7 +11,7 @@ usuarios = {
 }
 
 # Limite de tentativas de login
-LIMITE_TENTATIVAS = 10
+LIMITE_TENTATIVAS = 3
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
